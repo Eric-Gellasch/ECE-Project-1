@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProductName – Fast, Simple, Reliable</title>
+  <meta name="description" content="ProductName is a lightweight tool for <short value prop>. Download for Windows, macOS, and Linux." />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --text: #e5e7eb;      /* gray-200 */
+      --muted: #9ca3af;     /* gray-400 */
+      --accent: #60a5fa;    /* blue-400 */
+      --accent-2: #22d3ee;  /* cyan-400 */
+      --success: #34d399;   /* emerald-400 */
+      --border: #1f2937;    /* gray-800 */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.15), transparent 60%),
+                  radial-gradient(800px 400px at 100% 0%, rgba(34,211,238,.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
+    .logo .dot { width: 10px; height: 10px; border-radius: 999px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 2px rgba(96,165,250,.25); }
+    .nav a { margin-left: 18px; color: var(--muted); }
+
+    .hero { margin-top: 56px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .hero .pitch { padding: 32px; }
+    .eyebrow { display:inline-block; padding: 6px 10px; font-size: 12px; letter-spacing: .6px; text-transform: uppercase; border:1px solid var(--border); border-radius: 999px; color: var(--muted); }
+    h1 { font-size: clamp(28px, 3vw + 12px, 46px); line-height: 1.15; margin: 16px 0 12px; }
+    .subtitle { color: var(--muted); font-size: 18px; }
+    .actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; border:1px solid var(--border); background: #0b1220; color: var(--text); padding: 12px 16px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: transform .05s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b1220; border: none; }
+    .btn .tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: rgba(0,0,0,.25); color: #fff; }
+
+    .hero .panel { padding: 22px; display: grid; gap: 14px; }
+    .panel h3 { margin: 4px 0; }
+    .kv { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .kv .box { padding: 12px 14px; border:1px dashed var(--border); border-radius: 12px; color: var(--muted); font-size: 14px; }
+
+    .section { margin-top: 60px; }
+    .section h2 { font-size: 28px; margin: 0 0 10px; }
+    .lead { color: var(--muted); margin-bottom: 18px; }
+
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature { padding: 18px; border:1px solid var(--border); border-radius: 14px; background: rgba(17,24,39,.5); }
+    .feature h3 { margin: 0 0 6px; font-size: 18px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .downloads { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .dl { padding: 16px; border:1px solid var(--border); border-radius: 14px; background: rgba(17,24,39,.5); }
+    .dl h4{ margin:0 0 8px; }
+    .dl .small{ color:var(--muted); font-size:13px; }
+
+    .req { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .req .col { padding: 16px; border:1px solid var(--border); border-radius: 14px; background: rgba(17,24,39,.5); }
+
+    footer { margin: 60px 0 20px; color: var(--muted); text-align:center; font-size: 14px; }
+
+    @media (max-width: 900px){
+      .hero { grid-template-columns: 1fr; }
+      .kv { grid-template-columns: 1fr; }
+      .grid, .downloads, .req { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      .nav { display:flex; gap:10px; flex-wrap:wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="dot" aria-hidden="true"></span>
+        <span>ProductName</span>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#downloads">Download</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#support">Support</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="pitch card">
+        <span class="eyebrow">NEW • v1.0.0</span>
+        <h1>Fast, simple <span style="background:linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent">ProductName</span> for Your Workflow</h1>
+        <p class="subtitle">ProductName is a lightweight tool that helps you <strong>do X</strong> and <strong>automate Y</strong> in minutes. No signup required. 100% offline option.</p>
+        <div class="actions">
+          <a class="btn primary" href="#downloads">Download now<span class="tag">Free</span></a>
+          <a class="btn" href="#features">See features</a>
+          <a class="btn" href="#support">Docs</a>
+        </div>
+      </div>
+      <aside class="panel card" aria-labelledby="quick-facts">
+        <h3 id="quick-facts">Quick facts</h3>
+        <div class="kv">
+          <div class="box">Version: <strong>1.0.0</strong></div>
+          <div class="box">Release date: <strong>2025‑10‑16</strong></div>
+          <div class="box">License: <strong>MIT</strong></div>
+          <div class="box">Size: <strong>~10 MB</strong></div>
+        </div>
+        <p class="small" style="color:var(--muted); margin:0">Checksums are listed per platform below. Verify downloads for integrity.</p>
+      </aside>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Core features</h2>
+      <p class="lead">Everything you need to get started—no fluff.</p>
+      <div class="grid">
+        <div class="feature">
+          <h3>Blazing‑fast</h3>
+          <p>Optimized native code and zero external bloat for instant startup.</p>
+        </div>
+        <div class="feature">
+          <h3>Private by design</h3>
+          <p>Runs fully offline. No telemetry. Your data stays on your machine.</p>
+        </div>
+        <div class="feature">
+          <h3>Developer‑friendly</h3>
+          <p>Simple CLI and clean logs. Works well in CI and local scripts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads" class="section">
+      <h2>Download</h2>
+      <p class="lead">Pick your platform. Each build is code‑signed and virus‑scanned.</p>
+      <div class="downloads">
+        <div class="dl">
+          <h4>Windows</h4>
+          <p><a class="btn" href="https://example.com/downloads/ProductName-1.0.0-win-x64.exe">Download .exe (x64)</a></p>
+          <p class="small">SHA256: <code>aaaaaaaa...1111</code></p>
+          <p class="small">Requires Windows 10 or later</p>
+        </div>
+        <div class="dl">
+          <h4>macOS</h4>
+          <p><a class="btn" href="https://example.com/downloads/ProductName-1.0.0-macos-universal.dmg">Download .dmg (Universal)</a></p>
+          <p class="small">SHA256: <code>bbbbbbbb...2222</code></p>
+          <p class="small">Requires macOS 12 or later</p>
+        </div>
+        <div class="dl">
+          <h4>Linux</h4>
+          <p><a class="btn" href="https://example.com/downloads/ProductName-1.0.0-linux-x86_64.tar.gz">Download .tar.gz (x86_64)</a></p>
+          <p class="small">SHA256: <code>cccccccc...3333</code></p>
+          <p class="small">glibc ≥ 2.31 (Ubuntu 20.04+)</p>
+        </div>
+      </div>
+      <p class="small" style="color:var(--muted); margin-top:10px">Looking for previous versions? <a href="#">See all releases</a>.</p>
+    </section>
+
+    <section id="requirements" class="section">
+      <h2>System requirements</h2>
+      <div class="req">
+        <div class="col">
+          <strong>Minimum</strong>
+          <ul>
+            <li>Dual‑core CPU</li>
+            <li>4 GB RAM</li>
+            <li>100 MB free disk</li>
+            <li>Internet optional (for updates)</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Recommended</strong>
+          <ul>
+            <li>Quad‑core CPU</li>
+            <li>8+ GB RAM</li>
+            <li>SSD storage</li>
+            <li>Latest OS updates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section">
+      <h2>Support & contact</h2>
+      <p class="lead">Questions or need help? Check the quick docs, then reach out.</p>
+      <ul>
+        <li><a href="#">Quick start guide</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li>Email: <a href="mailto:support@example.com">support@example.com</a></li>
+    </ul>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> ProductName. All rights reserved.</div>
+      <div style="margin-top:6px">Made with ❤ for developers.</div>
+    </footer>
+  </div>
+  <script>
+    // Update footer year automatically
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
