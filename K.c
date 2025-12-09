@@ -9,7 +9,7 @@
 #include <string.h>
 #include <direct.h>
 
-#define TARGET_PHRASE "Football123$"
+#define TARGET_PHRASE "vpwjkeurkb"
 #define NUM_ATTEMPTS  5
 #define REQUIRE_ENTER_TO_START 1
 
@@ -114,7 +114,7 @@ void reset_attempt(const char *msg) {
         armed = 0;
     if (msg) printf("%s\n", msg);
     if (REQUIRE_ENTER_TO_START)
-        printf("Press ENTER to arm next attempt.\n");
+        printf("PRESS ENTER to arm every attempt. \n");
 }
 
 void arm_next_attempt(void) {
@@ -131,7 +131,7 @@ void buffer_attempt(void) {
     attempts[attempt_index] = cur;
     attempts[attempt_index].attempt_no = attempt_index + 1;
     attempt_index++;
-    printf("✅ Attempt %d/%d recorded.\n", attempt_index, NUM_ATTEMPTS);
+    printf(" CORRECT Attempt :) ;) %d/%d recorded.\n", attempt_index, NUM_ATTEMPTS);
 }
 
 // -------------------------------------------------
@@ -297,7 +297,7 @@ LRESULT CALLBACK KeyboardProc(int code, WPARAM wParam, LPARAM lParam) {
             typed[len+1] = '\0';
 
             if (strncmp(TARGET_PHRASE, typed, strlen(typed)) != 0) {
-                reset_attempt("Mistyped — resetting.");
+                reset_attempt("Mistyped :( Press ENTER to Arm)");
                 return 1;
             }
         }
@@ -347,7 +347,7 @@ LRESULT CALLBACK KeyboardProc(int code, WPARAM wParam, LPARAM lParam) {
 void get_user_name_and_filename(void) {
     char name[MAX_NAME_LEN] = {0};
 
-    printf("Enter your name (no spaces): ");
+    printf("Enter your full name (no spaces): ");
     fflush(stdout);
 
     if (fgets(name, sizeof(name), stdin)) {
@@ -391,7 +391,7 @@ int main(void) {
     get_user_name_and_filename();
 
     if (REQUIRE_ENTER_TO_START)
-        printf("- Press ENTER to arm each attempt.\n");
+        printf("- Press ENTER to arm each attempt. , if you mistype you will be notified, press ENTER to re-arm after mistyping.\n");
 
     LARGE_INTEGER li;
     QueryPerformanceFrequency(&li);
